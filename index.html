@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portafolio de Alex Mihai - Desarrollador Web y Diseñador UI/UX. Proyectos, habilidades y contacto.">
+    <title>Portafolio | Alex Mihai</title>
+
+    <!-- Fuentes (Google Fonts: Outfit y Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Hoja de Estilos -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- View Transition API -->
+    <meta name="view-transition" content="same-origin">
+</head>
+
+<body>
+    <!-- Hack Checkbox para el tema (Sin JS) -->
+    <input type="checkbox" id="theme-switch" class="theme-checkbox" hidden>
+
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="logo">Alex<span class="accent">.dev</span></div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#contacto" class="btn-contact">Contacto</a></li>
+        </ul>
+        <!-- Label actúa como botón para activar el checkbox -->
+        <label for="theme-switch" class="theme-toggle-btn" aria-label="Cambiar tema">
+            <svg class="icon-theme" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <path
+                    d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
+                </path>
+            </svg>
+        </label>
+    </nav>
+
+    <!-- Header / Hero -->
+    <header id="inicio" class="hero">
+        <div class="hero-content fade-in-up">
+            <h1>Creando Experiencias <br><span class="gradient-text">Digitales Únicas</span></h1>
+            <p>Desarrollador Web Creativo especializado en interfaces modernas y funcionales.</p>
+            <div class="hero-actions">
+                <a href="#proyectos" class="btn btn-primary">Ver Trabajos</a>
+                <a href="#contacto" class="btn btn-outline">Contactar</a>
+            </div>
+        </div>
+        <div class="hero-image float-animation">
+            <!-- Imagen Responsive: WebP (moderno) y PNG (fallback) -->
+            <picture>
+                <source srcset="assets/images/profile.png" type="image/png"> <!-- Usamos la transparente procesada -->
+                <img src="assets/images/profile.png" alt="Avatar Futurista" class="profile-img">
+            </picture>
+        </div>
+        <!-- Fondo Decorativo -->
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+    </header>
+
+    <!-- Sección Proyectos con Scroll Animation -->
+    <section id="proyectos" class="projects">
+        <h2 class="section-title">Mis Proyectos</h2>
+        <div class="grid-container">
+
+            <!-- Proyecto 1: Tarjeta 3D -->
+            <article class="card-3d">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <!-- Imagen AVIF requerida -->
+                        <picture>
+                            <source srcset="assets/images/dashboard.avif" type="image/avif">
+                            <img src="assets/images/dashboard.png" alt="Dashboard Panel" loading="lazy">
+                        </picture>
+                        <h3>Dashboard Analytics</h3>
+                        <p>Panel de control administrativo.</p>
+                    </div>
+                    <div class="card-back">
+                        <h3>Tecnologías</h3>
+                        <p>HTML5, CSS Grid, Chart.js</p>
+                        <a href="#" class="btn-small">Ver Demo</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Proyecto 2 -->
+            <article class="project-card reveal-on-scroll">
+                <div class="image-wrapper">
+                    <!-- Imagen WebP requerida -->
+                    <picture>
+                        <source srcset="assets/images/hero-bg.webp" type="image/webp">
+                        <img src="assets/images/hero-bg.png" alt="Diseño Abstracto" loading="lazy">
+                    </picture>
+                </div>
+                <div class="card-content">
+                    <div class="icon-box">
+                        <img src="assets/icons/monitor.svg" alt="icono monitor" class="icon-svg">
+                    </div>
+                    <h3>Landing Page Abstracta</h3>
+                    <p>Diseño conceptual con glassmorphism.</p>
+                </div>
+            </article>
+
+            <!-- Proyecto 3 -->
+            <article class="project-card reveal-on-scroll delay-100">
+                <div class="image-wrapper">
+                    <img src="assets/images/mobile-app.png" alt="App Móvil" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <div class="icon-box">
+                        <img src="assets/icons/folder.svg" alt="icono carpeta" class="icon-svg">
+                    </div>
+                    <h3>App de Viajes</h3>
+                    <p>Interfaz móvil minimalista y limpia.</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Sección Habilidades -->
+    <section id="habilidades" class="skills">
+        <h2 class="section-title">Habilidades</h2>
+        <div class="skills-wrapper">
+            <div class="skill-item">
+                <span class="skill-name">HTML5 Semántico</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 95%"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <span class="skill-name">CSS3 / Animaciones</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 90%"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <span class="skill-name">Diseño UI/UX</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 85%"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <span class="skill-name">Control de Versiones (Git)</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 80%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Contacto -->
+    <section id="contacto" class="contact">
+        <h2 class="section-title">Contáctame</h2>
+        <form class="contact-form glass-effect">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <div class="input-wrapper">
+                    <img src="assets/icons/user.svg" alt="user" class="input-icon">
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" rows="5" placeholder="¿En qué puedo ayudarte?"
+                    required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-full">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Alex Mihai. Todos los derechos reservados.</p>
+        <div class="socials">
+            <a href="#">Github</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+
+</body>
+<!-- No usamos script.js porque está prohibido por el enunciado (usar solo HTML/CSS) -->
+<!-- El toggle de tema debería hacerse con CSS puro (checkbox hack) o el enunciado permite "variables para modoclaro/oscuro", 
+     normalmente implica prefers-color-scheme o un checkbox hack. 
+     Para cumplir estrictamente "sin JS", usaré un input checkbox oculto al principio del body para el tema. -->
+
+</html>
