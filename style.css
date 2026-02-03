@@ -683,3 +683,63 @@ img {
     transition: 0.5s;
 }
 .boton-primario:hover::after { left: 100%; }
+
+/* =========================================
+   ANIMACIONES DINÁMICAS PARA AVATAR
+   ========================================= */
+
+/* Flotación suave continua */
+@keyframes flotar-suave {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-15px) rotate(1deg); }
+    50% { transform: translateY(-25px) rotate(0deg); }
+    75% { transform: translateY(-15px) rotate(-1deg); }
+}
+
+.flotar-suave {
+    animation: flotar-suave 6s ease-in-out infinite;
+}
+
+/* Pulso de brillo en el marco */
+@keyframes pulso-neon {
+    0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.8), 0 0 60px rgba(34, 211, 238, 0.4); }
+}
+
+.marco-neon {
+    animation: pulso-neon 3s ease-in-out infinite;
+}
+
+/* Partículas flotantes alrededor */
+.orbitas::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--color-acento);
+    border-radius: 50%;
+    top: 20%;
+    left: 10%;
+    animation: orbitar 8s linear infinite;
+    box-shadow: 0 0 10px var(--color-acento);
+}
+
+@keyframes orbitar {
+    0% { transform: rotate(0deg) translateX(150px) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: rotate(360deg) translateX(150px) rotate(-360deg); opacity: 0; }
+}
+
+/* Efecto hover en la foto */
+.foto-perfil {
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.imagen-hero:hover .foto-perfil {
+    transform: scale(1.1) translateY(10px) rotate(3deg);
+}
+
+.imagen-hero:hover .marco-neon {
+    border-color: var(--color-acento);
+}
