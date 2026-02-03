@@ -6,12 +6,14 @@
     --bg-color: #f8f9fa;
     --text-color: #1a1a1a;
     --card-bg: #ffffff;
-    --primary-color: #4f46e5; /* Índigo */
-    --accent-color: #ec4899; /* Rosa */
+    --primary-color: #4f46e5;
+    /* Índigo */
+    --accent-color: #ec4899;
+    /* Rosa */
     --nav-bg: rgba(255, 255, 255, 0.8);
     --border-color: #e5e7eb;
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    
+
     /* Tipografía */
     --font-main: 'Inter', sans-serif;
     --font-heading: 'Outfit', sans-serif;
@@ -19,7 +21,8 @@
 
 /* Modo Oscuro: Se activa cuando el checkbox #theme-switch está marcado */
 :has(#theme-switch:checked) {
-    --bg-color: #0f172a; /* Azul oscuro profundo */
+    --bg-color: #0f172a;
+    /* Azul oscuro profundo */
     --text-color: #f1f5f9;
     --card-bg: #1e293b;
     --primary-color: #6366f1;
@@ -38,13 +41,16 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    /* Evita que el navbar tape los títulos al hacer click en el menú */
     font-family: var(--font-main);
 }
 
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    transition: background-color 0.4s ease, color 0.4s ease; /* Transición suave de tema */
+    transition: background-color 0.4s ease, color 0.4s ease;
+    /* Transición suave de tema */
     overflow-x: hidden;
 }
 
@@ -60,7 +66,8 @@ body {
     align-items: center;
     padding: 1rem 5%;
     background: var(--nav-bg);
-    backdrop-filter: blur(10px); /* Efecto cristal */
+    backdrop-filter: blur(10px);
+    /* Efecto cristal */
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
 }
@@ -143,6 +150,8 @@ body {
 
 .gradient-text {
     background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    background-clip: text;
+    /* Estándar */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -178,7 +187,7 @@ body {
 
 .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .hero-image {
@@ -247,7 +256,8 @@ body {
 /* Tarjeta 3D (Flip Card) */
 .card-3d {
     background-color: transparent;
-    perspective: 1000px; /* Efecto 3D */
+    perspective: 1000px;
+    /* Efecto 3D */
     height: 400px;
 }
 
@@ -264,7 +274,8 @@ body {
     transform: rotateY(180deg);
 }
 
-.card-front, .card-back {
+.card-front,
+.card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -354,7 +365,8 @@ body {
 .contact-form {
     width: 100%;
     max-width: 600px;
-    background: rgba(255, 255, 255, 0.05); /* Muy sutil */
+    background: rgba(255, 255, 255, 0.05);
+    /* Muy sutil */
     border: 1px solid var(--border-color);
     padding: 2.5rem;
     border-radius: 20px;
@@ -381,10 +393,11 @@ body {
     position: absolute;
     left: 10px;
     width: 20px;
-    filter: invert(50%); /* Ajustar color icono */
+    filter: invert(50%);
+    /* Ajustar color icono */
 }
 
-.contact-form input, 
+.contact-form input,
 .contact-form textarea {
     width: 100%;
     padding: 0.8rem;
@@ -431,9 +444,17 @@ body {
 
 /* 1. Animación Flotante (Hero Image) */
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0px); }
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .float-animation {
@@ -442,8 +463,13 @@ body {
 
 /* 2. Animación Blob Fondo */
 @keyframes moveBlob {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(50px, 50px) scale(1.1); }
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(50px, 50px) scale(1.1);
+    }
 }
 
 /* 3. Animación de Entrada (Fade In Up) */
@@ -452,6 +478,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -466,20 +493,28 @@ body {
    Requisito: "Animaciones basadas en scroll" */
 
 @keyframes reveal {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .reveal-on-scroll {
     /* Soporte básico */
-    animation: reveal 1ms both; /* Dummy time */
-    animation-timeline: view(); /* View Transition API Modern */
+    animation: reveal 1ms both;
+    /* Dummy time */
+    animation-timeline: view();
+    /* View Transition API Modern */
     animation-range: entry 10% cover 30%;
 }
 
 .delay-100 {
-    /* No se puede aplicar delay fácil con scroll-driven puro sin ajustar rangos, 
-       pero esto cumple si el navegador lo soporta */
+    animation-delay: 200ms;
 }
 
 /* =========================================
@@ -489,12 +524,14 @@ body {
     .navbar {
         padding: 1rem;
     }
-    
+
     .hero {
-        flex-direction: column-reverse; /* Imagen arriba en móvil, o abajo según gusto */
+        flex-direction: column-reverse;
+        /* Imagen arriba en móvil, o abajo según gusto */
         justify-content: center;
         text-align: center;
-        padding-top: 80px; /* Espacio para navbar fija */
+        padding-top: 80px;
+        /* Espacio para navbar fija */
     }
 
     .hero-content {
@@ -512,10 +549,12 @@ body {
     .projects {
         padding: 3rem 5%;
     }
-    
+
     .nav-links {
-        display: none; /* Simplificado para evitar menu JS hamburguesa, o poner bottom bar */
+        display: none;
+        /* Simplificado para evitar menu JS hamburguesa, o poner bottom bar */
     }
+
     /* El enunciado pide "sin JS", así que un menú hamburguesa real es difícil sin checkbox hack extra.
        Para cumplir "se vea bien", en móvil mostraré los links simplificados o apilados si caben, 
        o simplemente oculto y dejo los importantes. */
