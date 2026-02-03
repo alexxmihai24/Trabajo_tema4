@@ -1,4 +1,4 @@
-/* =========================================
+﻿/* =========================================
    VARIABLES Y TEMA (Modo Claro / Oscuro)
    ========================================= */
 :root {
@@ -191,8 +191,8 @@ body {
 }
 
 .hero-image {
-    width: 400px;
-    height: 400px;
+    width: 350px;
+    height: 350px;
     position: relative;
     z-index: 1;
     display: flex;
@@ -200,11 +200,52 @@ body {
     align-items: center;
 }
 
+/* Fondo animado estilo "Aura Tech" */
+.hero-image::before {
+    content: '';
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    background: conic-gradient(from 0deg, transparent 0%, var(--primary-color) 40%, var(--accent-color) 70%, transparent 100%);
+    border-radius: 50%;
+    animation: rotateAura 4s linear infinite;
+    filter: blur(25px);
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.hero-image::after {
+    content: '';
+    position: absolute;
+    width: 98%;
+    height: 98%;
+    background: var(--bg-color);
+    border-radius: 50%;
+    z-index: -1;
+}
+
 .hero-image img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 0 20px rgba(79, 70, 229, 0.4));
+    border-radius: 50%;
+    z-index: 2;
+    filter: drop-shadow(0 0 15px rgba(79, 70, 229, 0.5));
+    transition: transform 0.3s ease;
+}
+
+.hero-image:hover img {
+    transform: scale(1.05);
+}
+
+@keyframes rotateAura {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Animaciones de Fondo */
@@ -517,6 +558,116 @@ body {
     animation-delay: 200ms;
 }
 
+
+
+/* Estilo simple para footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: 4rem;
+    opacity: 0.7;
+}
+
+/* =========================================
+   SECCIÓN HABILIDADES (Refactorizada)
+   ========================================= */
+.skills {
+    padding: 5rem 10%;
+    background: radial-gradient(circle at center, transparent 0%, var(--bg-color) 70%);
+}
+
+.skills-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    padding: 3rem;
+    border-radius: 24px;
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow);
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateX(10px);
+}
+
+.skill-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.skill-name::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background-color: var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 10px;
+    position: relative;
+    animation: fillBar 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    width: 0;
+    /* Empieza en 0 para la animación */
+}
+
+/* Efecto de brillo en la barra */
+.progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: translateX(-100%);
+    animation: shimmer 2s infinite;
+}
+
+/* Animación de carga de barra */
+@keyframes fillBar {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
 /* =========================================
    MEDIA QUERIES (Responsive)
    ========================================= */
@@ -527,11 +678,10 @@ body {
 
     .hero {
         flex-direction: column-reverse;
-        /* Imagen arriba en móvil, o abajo según gusto */
+        /* Imagen arriba en m�vil */
         justify-content: center;
         text-align: center;
         padding-top: 80px;
-        /* Espacio para navbar fija */
     }
 
     .hero-content {
@@ -546,25 +696,14 @@ body {
         justify-content: center;
     }
 
-    .projects {
+    .projects,
+    .skills {
         padding: 3rem 5%;
     }
 
     .nav-links {
         display: none;
-        /* Simplificado para evitar menu JS hamburguesa, o poner bottom bar */
     }
 
-    /* El enunciado pide "sin JS", así que un menú hamburguesa real es difícil sin checkbox hack extra.
-       Para cumplir "se vea bien", en móvil mostraré los links simplificados o apilados si caben, 
-       o simplemente oculto y dejo los importantes. */
-}
-
-/* Estilo simple para footer */
-footer {
-    text-align: center;
-    padding: 2rem;
-    border-top: 1px solid var(--border-color);
-    margin-top: 4rem;
-    opacity: 0.7;
+    /* Simplificado para evitar JS */
 }
