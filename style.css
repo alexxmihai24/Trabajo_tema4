@@ -635,54 +635,96 @@ img {
 .entrada-lateral {
     animation: fadeIn 1s ease-out;
 }
+
 /* =========================================
    ANIMACIONES VISIBLES (EFECTO WOW)
    ========================================= */
 
 /* 1. Aparición al hacer Scroll */
 @keyframes aparecerDesdeAbajo {
-    from { opacity: 0; transform: translateY(100px) scale(0.9); filter: blur(10px); }
-    to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+    from {
+        opacity: 0;
+        transform: translateY(100px) scale(0.9);
+        filter: blur(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
 }
 
 .aparicion-scroll {
-    animation: aparecerDesdeAbajo ease-out both; 
+    animation: aparecerDesdeAbajo ease-out both;
     animation-timeline: view();
     animation-range: entry 10% cover 40%;
 }
 
 /* 2. Efecto Hover en Tarjetas */
-.tarjeta-proyecto { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.tarjeta-proyecto {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
 .tarjeta-proyecto:hover .info-proyecto {
     background: var(--color-tarjeta);
     border-color: var(--color-acento);
     box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
     transform: scale(1.02);
 }
+
 .tarjeta-proyecto:hover .contenedor-imagen-plana {
     transform: scale(1.05) rotate(-2deg);
     border-color: var(--color-acento);
     box-shadow: 15px 15px 0 var(--color-primario);
 }
-.tarjeta-proyecto:hover .numero-proyecto { color: var(--color-primario); transform: translateX(10px); }
+
+.tarjeta-proyecto:hover .numero-proyecto {
+    color: var(--color-primario);
+    transform: translateX(10px);
+}
 
 /* 3. Animación Texto Hero */
 @keyframes llenarTexto {
-    0% { -webkit-text-stroke: 2px var(--color-primario); color: transparent; }
-    50% { color: var(--color-texto); }
-    100% { -webkit-text-stroke: 0px; color: var(--color-acento); }
+    0% {
+        -webkit-text-stroke: 2px var(--color-primario);
+        color: transparent;
+    }
+
+    50% {
+        color: var(--color-texto);
+    }
+
+    100% {
+        -webkit-text-stroke: 0px;
+        color: var(--color-acento);
+    }
 }
-.texto-delineado { animation: llenarTexto 3s infinite alternate; }
+
+.texto-delineado {
+    animation: llenarTexto 3s infinite alternate;
+}
 
 /* 4. Efecto Botón */
-.boton-primario { position: relative; overflow: hidden; }
+.boton-primario {
+    position: relative;
+    overflow: hidden;
+}
+
 .boton-primario::after {
-    content: ''; position: absolute; top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
     transition: 0.5s;
 }
-.boton-primario:hover::after { left: 100%; }
+
+.boton-primario:hover::after {
+    left: 100%;
+}
 
 /* =========================================
    ANIMACIONES DINÁMICAS PARA AVATAR
@@ -690,10 +732,23 @@ img {
 
 /* Flotación suave continua */
 @keyframes flotar-suave {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    25% { transform: translateY(-15px) rotate(1deg); }
-    50% { transform: translateY(-25px) rotate(0deg); }
-    75% { transform: translateY(-15px) rotate(-1deg); }
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-15px) rotate(1deg);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(0deg);
+    }
+
+    75% {
+        transform: translateY(-15px) rotate(-1deg);
+    }
 }
 
 .flotar-suave {
@@ -702,8 +757,15 @@ img {
 
 /* Pulso de brillo en el marco */
 @keyframes pulso-neon {
-    0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
-    50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.8), 0 0 60px rgba(34, 211, 238, 0.4); }
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(99, 102, 241, 0.8), 0 0 60px rgba(34, 211, 238, 0.4);
+    }
 }
 
 .marco-neon {
@@ -725,10 +787,23 @@ img {
 }
 
 @keyframes orbitar {
-    0% { transform: rotate(0deg) translateX(150px) rotate(0deg); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: rotate(360deg) translateX(150px) rotate(-360deg); opacity: 0; }
+    0% {
+        transform: rotate(0deg) translateX(150px) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotate(360deg) translateX(150px) rotate(-360deg);
+        opacity: 0;
+    }
 }
 
 /* Efecto hover en la foto */
@@ -743,16 +818,17 @@ img {
 .imagen-hero:hover .marco-neon {
     border-color: var(--color-acento);
 }
+
 /* =========================================
    FONDO CON PATRÓN (NO BLANCO PLANO)
    ========================================= */
 
 body {
     background-color: var(--color-fondo);
-    background-image: 
+    background-image:
         radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
         radial-gradient(circle at 80% 80%, rgba(34, 211, 238, 0.05) 0%, transparent 50%),
-        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.02) 2px, rgba(0,0,0,0.02) 4px);
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.02) 2px, rgba(0, 0, 0, 0.02) 4px);
     background-attachment: fixed;
 }
 
@@ -760,17 +836,17 @@ body {
    MEJORAS STACK TECNOLÓGICO
    ========================================= */
 
-.seccion-habilidades { 
-    padding: 8rem 10%; 
+.seccion-habilidades {
+    padding: 8rem 10%;
     background: linear-gradient(180deg, var(--color-fondo) 0%, var(--color-tarjeta) 50%, var(--color-fondo) 100%);
-    border-top: var(--borde); 
-    border-bottom: var(--borde); 
+    border-top: var(--borde);
+    border-bottom: var(--borde);
 }
 
-.rejilla-habilidades { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 2.5rem; 
+.rejilla-habilidades {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -825,14 +901,14 @@ body {
     transform: rotate(360deg) scale(1.1);
 }
 
-.icono-habilidad { 
-    width: 30px; 
-    filter: invert(0); 
+.icono-habilidad {
+    width: 30px;
+    filter: invert(0);
     transition: 0.3s;
 }
 
-:has(#interruptor-tema:checked) .icono-habilidad { 
-    filter: invert(1); 
+:has(#interruptor-tema:checked) .icono-habilidad {
+    filter: invert(1);
 }
 
 .tarjeta-habilidad:hover .icono-habilidad {
@@ -853,20 +929,26 @@ body {
 }
 
 .barra-contenedor {
-    height: 8px; 
-    width: 100%; 
-    background: var(--color-secundario);
-    opacity: 0.2;
-    margin-top: 1rem; 
+    height: 10px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
     position: relative;
     border-radius: 10px;
     overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+:has(#interruptor-tema:checked) .barra-contenedor {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .barra-progreso {
-    height: 100%; 
-    background: linear-gradient(90deg, var(--color-acento), var(--color-primario));
-    position: absolute; 
+    height: 100%;
+    background: linear-gradient(90deg, #6366f1, #22d3ee);
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+    position: absolute;
     left: 0;
     border-radius: 10px;
     transition: width 1.5s cubic-bezier(0.65, 0, 0.35, 1);
@@ -880,17 +962,30 @@ body {
     font-size: 0.7rem;
     font-weight: 700;
     color: #fff;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.w-95 { width: 95%; } 
-.w-92 { width: 92%; }
-.w-90 { width: 90%; } 
-.w-85 { width: 85%; }
+.w-95 {
+    width: 95%;
+}
+
+.w-92 {
+    width: 92%;
+}
+
+.w-90 {
+    width: 90%;
+}
+
+.w-85 {
+    width: 85%;
+}
 
 /* Animación de carga de barras */
 @keyframes cargar-barra {
-    from { width: 0; }
+    from {
+        width: 0;
+    }
 }
 
 .barra-progreso {
