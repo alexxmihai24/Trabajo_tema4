@@ -4,194 +4,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Portafolio de Alex Mihai - Desarrollador Web y Diseñador UI/UX. Proyectos, habilidades y contacto.">
-    <title>Portafolio | Alex Mihai</title>
+    <meta name="description" content="Portafolio de Alex Mihai - Desarrollador Web y Diseñador.">
+    <title>Alex Mihai | Portafolio</title>
 
-    <!-- Fuentes (Google Fonts: Outfit y Inter) -->
+    <!-- Fuentes (Google Fonts: Space Grotesk para títulos y Inter para texto) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@300;500;700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap"
         rel="stylesheet">
 
-    <!-- Hoja de Estilos -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- View Transition API -->
     <meta name="view-transition" content="same-origin">
 </head>
 
 <body>
-    <!-- Hack Checkbox para el tema (Sin JS) -->
-    <input type="checkbox" id="theme-switch" class="theme-checkbox" hidden>
+    <!-- Checkbox para modo oscuro (Lógica sin JS) -->
+    <input type="checkbox" id="interruptor-tema" class="input-tema" hidden>
 
-    <!-- Navegación -->
-    <nav class="navbar">
-        <div class="logo">Alex<span class="accent">.dev</span></div>
-        <ul class="nav-links">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#habilidades">Habilidades</a></li>
-            <li><a href="#contacto" class="btn-contact">Contacto</a></li>
+    <!-- Barra de Navegación -->
+    <nav class="barra-navegacion">
+        <div class="marca">ALEX<span class="punto">.</span></div>
+        <ul class="lista-enlaces">
+            <li><a href="#inicio" class="enlace-nav">01. Inicio</a></li>
+            <li><a href="#proyectos" class="enlace-nav">02. Proyectos</a></li>
+            <li><a href="#habilidades" class="enlace-nav">03. Stack</a></li>
+            <li><a href="#contacto" class="boton-nav">Contactar</a></li>
         </ul>
-        <!-- Label actúa como botón para activar el checkbox -->
-        <label for="theme-switch" class="theme-toggle-btn" aria-label="Cambiar tema">
-            <svg class="icon-theme" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="5"></circle>
-                <path
-                    d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
-                </path>
-            </svg>
+        <label for="interruptor-tema" class="boton-tema" aria-label="Cambiar tema">
+            <span class="icono-sol">☀</span>
+            <span class="icono-luna">☾</span>
         </label>
     </nav>
 
-    <!-- Header / Hero -->
-    <header id="inicio" class="hero">
-        <div class="hero-content fade-in-up">
-            <h1>Creando Experiencias <br><span class="gradient-text">Digitales Únicas</span></h1>
-            <p>Desarrollador Web Creativo especializado en interfaces modernas y funcionales.</p>
-            <div class="hero-actions">
-                <a href="#proyectos" class="btn btn-primary">Ver Trabajos</a>
-                <a href="#contacto" class="btn btn-outline">Contactar</a>
+    <!-- Sección Inicio (Hero) -->
+    <header id="inicio" class="seccion-hero">
+        <div class="contenido-hero entrada-lateral">
+            <span class="etiqueta-bienvenida">👋 Hola, soy Alex</span>
+            <h1 class="titulo-gigante">DISEÑADOR <br> <span class="texto-delineado">CREATIVO</span> & WEB</h1>
+            <p class="subtitulo">Transformo ideas abstractas en experiencias digitales funcionales y modernas.</p>
+            <div class="grupo-botones">
+                <a href="#proyectos" class="boton-primario">Ver mi trabajo</a>
+                <a href="#contacto" class="boton-secundario">Hablemos</a>
             </div>
         </div>
-        <div class="hero-image float-animation">
-            <!-- Imagen Principal (Avatar) -->
-            <img src="assets/images/avatar.png" alt="Avatar User" class="profile-img">
+
+        <div class="imagen-hero flotar-suave">
+            <div class="marco-neon">
+                <!-- Imagen PNG Transparente -->
+                <img src="assets/images/avatar.png" alt="Perfil de Alex" class="foto-perfil">
+            </div>
+            <!-- Elementos decorativos flotantes -->
+            <div class="orbitas"></div>
         </div>
-        <!-- Fondo Decorativo -->
-        <div class="bg-shape shape-1"></div>
-        <div class="bg-shape shape-2"></div>
     </header>
 
-    <!-- Sección Proyectos con Scroll Animation -->
-    <section id="proyectos" class="projects">
-        <h2 class="section-title">Mis Proyectos</h2>
-        <div class="grid-container">
+    <!-- Sección Proyectos (Diseño Zig-Zag) -->
+    <section id="proyectos" class="seccion-proyectos">
+        <h2 class="titulo-seccion">PORTAFOLIO <span class="acento">SELECCIONADO</span></h2>
 
-            <!-- Proyecto 1: Tarjeta 3D -->
-            <article class="card-3d">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <!-- Imagen AVIF (Requerimiento cumplido) -->
-                        <picture>
-                            <source srcset="assets/images/Img.avif" type="image/avif">
-                            <img src="assets/images/Img.avif" alt="Dashboard Panel" loading="lazy">
-                        </picture>
-                        <h3>Dashboard Analytics</h3>
-                        <p>Panel de control administrativo.</p>
+        <div class="contenedor-proyectos">
+
+            <!-- Proyecto 1: Tarjeta 3D (Requisito) -->
+            <article class="tarjeta-proyecto par">
+                <div class="contenedor-imagen-3d">
+                    <div class="cubo-3d">
+                        <div class="cara frente">
+                            <!-- Imagen AVIF -->
+                            <picture>
+                                <source srcset="assets/images/Img.avif" type="image/avif">
+                                <img src="assets/images/dashboard.png" alt="Dashboard" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="cara atras">
+                            <h3>Dashboard Pro</h3>
+                            <p>Panel de administración con estadísticas en tiempo real.</p>
+                            <a href="#" class="enlace-proyecto">Ver Demo -></a>
+                        </div>
                     </div>
-                    <div class="card-back">
-                        <h3>Tecnologías</h3>
-                        <p>HTML5, CSS Grid, Chart.js</p>
-                        <a href="#" class="btn-small">Ver Demo</a>
-                    </div>
+                </div>
+                <div class="info-proyecto">
+                    <span class="numero-proyecto">01</span>
+                    <h3>Dashboard Analytics</h3>
+                    <ul class="etiquetas-tecnologia">
+                        <li>HTML5</li>
+                        <li>CSS Grid</li>
+                        <li>AVIF</li>
+                    </ul>
+                    <p>Una interfaz de usuario compleja diseñada para gestionar grandes volúmenes de datos sin perder la
+                        estética.</p>
                 </div>
             </article>
 
             <!-- Proyecto 2 -->
-            <article class="project-card reveal-on-scroll">
-                <div class="image-wrapper">
-                    <!-- Usamos el fondo abstracto subido (PNG) -->
-                    <img src="assets/images/abstract-bg.png" alt="Diseño Abstracto" loading="lazy">
+            <article class="tarjeta-proyecto impar aparicion-scroll">
+                <div class="info-proyecto">
+                    <span class="numero-proyecto">02</span>
+                    <h3>Landing Abstract</h3>
+                    <ul class="etiquetas-tecnologia">
+                        <li>Glassmorphism</li>
+                        <li>Responsive</li>
+                        <li>WebP</li>
+                    </ul>
+                    <p>Diseño conceptual enfocado en la conversión y la estética visual moderna.</p>
                 </div>
-                <div class="card-content">
-                    <div class="icon-box">
-                        <img src="assets/icons/monitor.svg" alt="icono monitor" class="icon-svg">
-                    </div>
-                    <h3>Landing Page Abstracta</h3>
-                    <p>Diseño conceptual con glassmorphism.</p>
+                <div class="contenedor-imagen-plana">
+                    <!-- Imagen PNG (Tu abstracto) -->
+                    <img src="assets/images/abstract-bg.png" alt="Arte Abstracto" loading="lazy">
                 </div>
             </article>
 
             <!-- Proyecto 3 -->
-            <article class="project-card reveal-on-scroll delay-100">
-                <div class="image-wrapper">
-                    <img src="assets/images/mobile-app.png" alt="App Móvil" loading="lazy">
+            <article class="tarjeta-proyecto par aparicion-scroll retraso">
+                <div class="contenedor-imagen-plana">
+                    <img src="assets/images/mobile-app.png" alt="App Diseño" loading="lazy">
                 </div>
-                <div class="card-content">
-                    <div class="icon-box">
-                        <img src="assets/icons/folder.svg" alt="icono carpeta" class="icon-svg">
-                    </div>
-                    <h3>App de Viajes</h3>
-                    <p>Interfaz móvil minimalista y limpia.</p>
+                <div class="info-proyecto">
+                    <span class="numero-proyecto">03</span>
+                    <h3>Travel App</h3>
+                    <ul class="etiquetas-tecnologia">
+                        <li>Mobile First</li>
+                        <li>UX/UI</li>
+                    </ul>
+                    <p>Prototipo de alta fidelidad para una aplicación de reservas de viajes.</p>
                 </div>
             </article>
 
         </div>
     </section>
 
-    <!-- Sección Habilidades -->
-    <section id="habilidades" class="skills">
-        <h2 class="section-title">Habilidades</h2>
-        <div class="skills-wrapper">
-            <div class="skill-item">
-                <span class="skill-name">HTML5 Semántico</span>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 95%"></div>
+    <!-- Sección Stack / Habilidades -->
+    <section id="habilidades" class="seccion-habilidades">
+        <h2 class="titulo-seccion">STACK <span class="acento">TECNOLÓGICO</span></h2>
+
+        <div class="rejilla-habilidades">
+            <div class="tarjeta-habilidad">
+                <img src="assets/icons/monitor.svg" alt="Frontend" class="icono-habilidad">
+                <h3>Frontend</h3>
+                <div class="barra-contenedor">
+                    <div class="barra-progreso w-95"></div>
                 </div>
             </div>
-            <div class="skill-item">
-                <span class="skill-name">CSS3 / Animaciones</span>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 90%"></div>
+            <div class="tarjeta-habilidad">
+                <img src="assets/icons/folder.svg" alt="Gestión" class="icono-habilidad">
+                <h3>Estructura</h3>
+                <div class="barra-contenedor">
+                    <div class="barra-progreso w-90"></div>
                 </div>
             </div>
-            <div class="skill-item">
-                <span class="skill-name">Diseño UI/UX</span>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 85%"></div>
-                </div>
-            </div>
-            <div class="skill-item">
-                <span class="skill-name">Control de Versiones (Git)</span>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 80%"></div>
+            <div class="tarjeta-habilidad">
+                <img src="assets/icons/user.svg" alt="UI/UX" class="icono-habilidad">
+                <h3>Diseño UI</h3>
+                <div class="barra-contenedor">
+                    <div class="barra-progreso w-85"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Formulario de Contacto -->
-    <section id="contacto" class="contact">
-        <h2 class="section-title">Contáctame</h2>
-        <form class="contact-form glass-effect">
-            <div class="form-group">
-                <label for="nombre">Nombre</label>
-                <div class="input-wrapper">
-                    <img src="assets/icons/user.svg" alt="user" class="input-icon">
-                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+    <!-- Contacto -->
+    <section id="contacto" class="seccion-contacto">
+        <div class="contenedor-formulario efecto-cristal">
+            <h2>¿Empezamos un proyecto?</h2>
+            <form action="#" method="POST">
+                <div class="grupo-input">
+                    <input type="text" id="nombre" placeholder=" " required>
+                    <label for="nombre">Tu Nombre</label>
                 </div>
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
-            </div>
-
-            <div class="form-group">
-                <label for="mensaje">Mensaje</label>
-                <textarea id="mensaje" name="mensaje" rows="5" placeholder="¿En qué puedo ayudarte?"
-                    required></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-full">Enviar Mensaje</button>
-        </form>
+                <div class="grupo-input">
+                    <input type="email" id="email" placeholder=" " required>
+                    <label for="email">Tu Email</label>
+                </div>
+                <div class="grupo-input">
+                    <textarea id="mensaje" rows="4" placeholder=" " required></textarea>
+                    <label for="mensaje">Cuéntame tu idea</label>
+                </div>
+                <button type="submit" class="boton-enviar">ENVIAR MENSAJE</button>
+            </form>
+        </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Alex Mihai. Todos los derechos reservados.</p>
-        <div class="socials">
-            <a href="#">Github</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">Twitter</a>
-        </div>
+    <footer class="pie-pagina">
+        <p>Diseñado y Programado por <strong>Alex Mihai</strong> © 2026</p>
     </footer>
 
 </body>
-<!-- No usamos script.js porque está prohibido por el enunciado (usar solo HTML/CSS) -->
-<!-- El toggle de tema debería hacerse con CSS puro (checkbox hack) o el enunciado permite "variables para modoclaro/oscuro", 
-     normalmente implica prefers-color-scheme o un checkbox hack. 
-     Para cumplir estrictamente "sin JS", usaré un input checkbox oculto al principio del body para el tema. -->
 
 </html>
