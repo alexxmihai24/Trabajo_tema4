@@ -23,17 +23,17 @@
     <input type="checkbox" id="interruptor-tema" class="input-tema" hidden>
 
     <!-- Barra de Navegación -->
-    <nav class="barra-navegacion">
+    <nav class="barra-navegacion" aria-label="Navegación principal">
         <div class="marca">ALEX<span class="punto">.</span></div>
         <ul class="lista-enlaces">
-            <li><a href="#inicio" class="enlace-nav">01. Inicio</a></li>
-            <li><a href="#proyectos" class="enlace-nav">02. Proyectos</a></li>
-            <li><a href="#habilidades" class="enlace-nav">03. Stack</a></li>
-            <li><a href="#contacto" class="boton-nav">Contactar</a></li>
+            <li><a href="#inicio" class="enlace-nav" aria-label="Ir a Inicio">01. Inicio</a></li>
+            <li><a href="#proyectos" class="enlace-nav" aria-label="Ir a Proyectos">02. Proyectos</a></li>
+            <li><a href="#habilidades" class="enlace-nav" aria-label="Ir a Habilidades">03. Stack</a></li>
+            <li><a href="#contacto" class="boton-nav" aria-label="Ir a Contacto">Contactar</a></li>
         </ul>
-        <label for="interruptor-tema" class="boton-tema" aria-label="Cambiar tema">
-            <span class="icono-sol">☀</span>
-            <span class="icono-luna">☾</span>
+        <label for="interruptor-tema" class="boton-tema" aria-label="Cambiar tema" title="Cambiar tema claro/oscuro">
+            <span class="icono-sol" aria-hidden="true">☀</span>
+            <span class="icono-luna" aria-hidden="true">☾</span>
         </label>
     </nav>
 
