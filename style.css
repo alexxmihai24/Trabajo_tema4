@@ -1219,3 +1219,24 @@ body {
 .barra-progreso {
     animation: cargar-barra 2s ease-out forwards;
 }
+/* Estilo Tarjeta UI Kit */
+.ui-kit-card {
+    position: relative;
+    /* Eliminar estilos anteriores de .pequeno que chocan */
+    display: block; 
+}
+.img-fit-dark {
+    width: 100%; height: 100%; object-fit: cover;
+    opacity: 0.6; transition: 0.4s;
+}
+.bento-item:hover .img-fit-dark { opacity: 0.3; transform: scale(1.1); }
+
+.overlay-ui {
+    position: absolute; bottom: 0; left: 0; 
+    width: 100%; padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    z-index: 2; pointer-events: none;
+}
+.overlay-ui h3 { font-size: 1.8rem; margin-bottom: 0px; color: white; }
+.overlay-ui p { font-size: 0.9rem; color: #ccc; margin-top: 5px; }
+
