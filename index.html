@@ -59,75 +59,65 @@
         </div>
     </header>
 
-    <!-- Sección Proyectos (Diseño Zig-Zag) -->
+    <!-- Sección Proyectos (Diseño Bento Grid) -->
     <section id="proyectos" class="seccion-proyectos">
-        <h2 class="titulo-seccion">PORTAFOLIO <span class="acento">SELECCIONADO</span></h2>
+        <div class="cabecera-seccion">
+            <h2 class="titulo-seccion">PROYECTOS <br><span class="acento">DESTACADOS</span></h2>
+            <p class="descripcion-seccion">Una colección de mis trabajos más recientes.</p>
+        </div>
 
-        <div class="contenedor-proyectos">
+        <div class="bento-grid">
 
-            <!-- Proyecto 1: Tarjeta 3D (Requisito) -->
-            <article class="tarjeta-proyecto par">
-                <div class="contenedor-imagen-3d">
+            <!-- Item Principal (Grande) - Requisito Tarjeta 3D -->
+            <article class="bento-item grande principal">
+                <div class="cubo-3d-wrapper">
                     <div class="cubo-3d">
                         <div class="cara frente">
-                            <!-- Imagen AVIF -->
                             <picture>
                                 <source srcset="assets/images/Img.avif" type="image/avif">
                                 <img src="assets/images/dashboard.png" alt="Dashboard" loading="lazy">
                             </picture>
+                            <div class="overlay-info">
+                                <h3>Dashboard Pro</h3>
+                                <span>Analytics & Data</span>
+                            </div>
                         </div>
                         <div class="cara atras">
-                            <h3>Dashboard Pro</h3>
-                            <p>Panel de administración con estadísticas en tiempo real.</p>
-                            <a href="#" class="enlace-proyecto">Ver Demo -></a>
+                            <h3>Tecnologías</h3>
+                            <p>HTML5 • CSS Grid • Chart.js</p>
+                            <a href="#" class="enlace-circular">Ver -></a>
                         </div>
                     </div>
                 </div>
-                <div class="info-proyecto">
-                    <span class="numero-proyecto">01</span>
-                    <h3>Dashboard Analytics</h3>
-                    <ul class="etiquetas-tecnologia">
-                        <li>HTML5</li>
-                        <li>CSS Grid</li>
-                        <li>AVIF</li>
-                    </ul>
-                    <p>Una interfaz de usuario compleja diseñada para gestionar grandes volúmenes de datos sin perder la
-                        estética.</p>
-                </div>
             </article>
 
-            <!-- Proyecto 2 -->
-            <article class="tarjeta-proyecto impar aparicion-scroll">
-                <div class="info-proyecto">
-                    <span class="numero-proyecto">02</span>
+            <!-- Item Mediano (Vertical) -->
+            <article class="bento-item mediano vertical">
+                <div class="bento-contenido">
+                    <div class="bento-icono">⚡</div>
                     <h3>Landing Abstract</h3>
-                    <ul class="etiquetas-tecnologia">
-                        <li>Glassmorphism</li>
-                        <li>Responsive</li>
-                        <li>WebP</li>
-                    </ul>
-                    <p>Diseño conceptual enfocado en la conversión y la estética visual moderna.</p>
+                    <p>Diseño conceptual High-Performance.</p>
                 </div>
-                <div class="contenedor-imagen-plana">
-                    <!-- Imagen PNG (Tu abstracto) -->
-                    <img src="assets/images/abstract-bg.png" alt="Arte Abstracto" loading="lazy">
+                <!-- Imagen PNG Abstracta -->
+                <img src="assets/images/abstract-bg.png" alt="Arte Abstracto" class="bento-bg" loading="lazy">
+            </article>
+
+            <!-- Item Pequeño (Texto) -->
+            <article class="bento-item pequeno texto-solo">
+                <h3>UI Kit</h3>
+                <p>Sistema de diseño modular.</p>
+                <div class="etiquetas-mini">
+                    <span>Figma</span><span>CSS</span>
                 </div>
             </article>
 
-            <!-- Proyecto 3 -->
-            <article class="tarjeta-proyecto par aparicion-scroll retraso">
-                <div class="contenedor-imagen-plana">
-                    <img src="assets/images/mobile-app.png" alt="App Diseño" loading="lazy">
-                </div>
-                <div class="info-proyecto">
-                    <span class="numero-proyecto">03</span>
+            <!-- Item Mediano (Horizontal) -->
+            <article class="bento-item mediano horizontal">
+                <div class="bento-info-flotante">
                     <h3>Travel App</h3>
-                    <ul class="etiquetas-tecnologia">
-                        <li>Mobile First</li>
-                        <li>UX/UI</li>
-                    </ul>
-                    <p>Prototipo de alta fidelidad para una aplicación de reservas de viajes.</p>
+                    <p>Experiencia móvil nativa.</p>
                 </div>
+                <img src="assets/images/mobile-app.png" alt="App Diseño" class="img-fit" loading="lazy">
             </article>
 
         </div>

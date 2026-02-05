@@ -202,30 +202,64 @@ img {
    ========================================= */
 .seccion-hero {
     min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    display: flex;
+    /* Flex en lugar de Grid para control total */
+    flex-direction: row;
     align-items: center;
-    padding: 0 10%;
-    gap: 4rem;
+    justify-content: space-between;
+    padding: 0 8%;
+    gap: 2rem;
     overflow: hidden;
+    position: relative;
+}
+
+/* Fondo decorativo sutil detrás del hero */
+.seccion-hero::before {
+    content: 'PORTFOLIO';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15vw;
+    font-weight: 900;
+    color: var(--color-texto);
+    opacity: 0.03;
+    z-index: -1;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.contenido-hero {
+    flex: 1;
+    max-width: 600px;
+    z-index: 2;
 }
 
 .etiqueta-bienvenida {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     padding: 0.5rem 1rem;
-    background: var(--color-tarjeta);
-    border: var(--borde);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50px;
     font-size: 0.9rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     font-weight: 600;
+    backdrop-filter: blur(5px);
+}
+
+:has(#interruptor-tema:checked) .etiqueta-bienvenida {
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .titulo-gigante {
     font-family: var(--fuente-titulos);
-    font-size: 5rem;
+    font-size: 5.5rem;
+    /* Más grande */
     line-height: 0.9;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    letter-spacing: -2px;
 }
 
 .texto-delineado {
@@ -322,81 +356,94 @@ img {
 }
 
 /* =========================================
-   SECCIÓN PROYECTOS (ZIG-ZAG)
+   3. SECCIÓN PROYECTOS (BENTO GRID)
    ========================================= */
 .seccion-proyectos {
-    padding: 8rem 10%;
+    padding: var(--espaciado-seccion) 8%;
+    background-color: var(--color-fondo);
+}
+
+.cabecera-seccion {
+    margin-bottom: 4rem;
+    max-width: 600px;
 }
 
 .titulo-seccion {
     font-family: var(--fuente-titulos);
-    font-size: 3rem;
-    margin-bottom: 5rem;
-    border-left: 5px solid var(--color-acento);
-    padding-left: 20px;
-}
-
-.contenedor-proyectos {
-    display: flex;
-    flex-direction: column;
-    gap: 8rem;
-}
-
-.tarjeta-proyecto {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-}
-
-.tarjeta-proyecto.impar {
-    direction: rtl;
-}
-
-/* Alternancia visual */
-.tarjeta-proyecto.impar .info-proyecto {
-    direction: ltr;
-}
-
-/* Corregir texto */
-
-.info-proyecto {
-    padding: 2rem;
-}
-
-.numero-proyecto {
-    font-family: var(--fuente-titulos);
-    font-size: 4rem;
-    color: var(--color-acento);
-    opacity: 0.3;
-    font-weight: 700;
-    display: block;
-    margin-bottom: -1rem;
-}
-
-.info-proyecto h3 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
+    line-height: 1;
     margin-bottom: 1rem;
 }
 
-.etiquetas-tecnologia {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 2rem;
+.descripcion-seccion {
+    color: var(--color-secundario);
+    font-size: 1.1rem;
+    margin-left: 5px;
+    border-left: 2px solid var(--color-acento);
+    padding-left: 1rem;
 }
 
-.etiquetas-tecnologia li {
+/* --- GRID LAYOUT PRINCIPAL --- */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 300px);
+    /* Altura fija para filas */
+    gap: 1.5rem;
+}
+
+/* Modificadores de Tamaño */
+.bento-item {
     background: var(--color-tarjeta);
     border: var(--borde);
-    padding: 5px 15px;
-    font-size: 0.8rem;
-    font-weight: 600;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    display: flex;
+    flex-direction: column;
 }
 
-/* Efecto 3D (Cubo) - Solo para el primer proyecto */
-.contenedor-imagen-3d {
+.bento-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    border-color: var(--color-acento);
+}
+
+/* Asignación de Espacios en Grid */
+.grande {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* 2x2 */
+.mediano.vertical {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+/* 1x2 */
+.mediano.horizontal {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+/* 1x1 pero ancho en móvil */
+.pequeno {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+/* 1x1 */
+
+/* --- Estilos Contenido Interno --- */
+
+/* 1. Tarjeta 3D (Refactorizada para Bento) */
+.cubo-3d-wrapper {
+    width: 100%;
+    height: 100%;
     perspective: 1000px;
-    height: 350px;
 }
 
 .cubo-3d {
@@ -404,10 +451,10 @@ img {
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 1s;
+    transition: transform 0.8s;
 }
 
-.contenedor-imagen-3d:hover .cubo-3d {
+.bento-item:hover .cubo-3d {
     transform: rotateY(180deg);
 }
 
@@ -416,9 +463,6 @@ img {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border-radius: 12px;
-    overflow: hidden;
-    border: var(--borde);
 }
 
 .cara.frente img {
@@ -427,32 +471,163 @@ img {
     object-fit: cover;
 }
 
+.overlay-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    pointer-events: none;
+}
+
 .cara.atras {
-    background: var(--color-acento);
+    background: var(--color-texto);
+    color: var(--color-fondo);
     transform: rotateY(180deg);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #fff;
-    padding: 2rem;
     text-align: center;
+    padding: 2rem;
 }
 
-/* Imagen Plana (Resto de proyectos) */
-.contenedor-imagen-plana {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    border: var(--borde);
-    box-shadow: var(--sombra);
+.enlace-circular {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid currentColor;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
     transition: 0.3s;
 }
 
-.contenedor-imagen-plana:hover {
-    transform: translateY(-10px);
-    box-shadow: 12px 12px 0 var(--color-acento);
+.enlace-circular:hover {
+    background: white;
+    color: black;
 }
+
+/* 2. Tarjeta Vertical (Abstracta) */
+.bento-contenido {
+    padding: 1.5rem;
+    z-index: 2;
+}
+
+.bento-icono {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.bento-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+    mask-image: linear-gradient(to left, black, transparent);
+    -webkit-mask-image: linear-gradient(to left, black, transparent);
+    transition: transform 0.5s;
+}
+
+.bento-item:hover .bento-bg {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* 3. Tarjeta Pequeña (Texto) */
+.pequeno {
+    background: var(--color-acento);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+}
+
+.pequeno h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.etiquetas-mini span {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    margin: 2px;
+}
+
+/* 4. Tarjeta Horizontal */
+.bento-info-flotante {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    color: black;
+}
+
+.img-fit {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.bento-item:hover .img-fit {
+    transform: scale(1.1);
+}
+
+/* RESPONSIVE BENTO GRID */
+@media (max-width: 1024px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+
+    .grande {
+        grid-column: span 2;
+        height: 400px;
+    }
+
+    .mediano.vertical {
+        grid-column: span 1;
+        height: 350px;
+    }
+
+    .mediano.horizontal {
+        grid-column: span 1;
+        height: 350px;
+    }
+
+    .pequeno {
+        grid-column: span 2;
+        height: 200px;
+    }
+
+    /* Expandir en tablet */
+}
+
+@media (max-width: 600px) {
+    .bento-grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bento-item {
+        height: 300px !important;
+    }
+}
+
 
 /* =========================================
    HABILIDADES
