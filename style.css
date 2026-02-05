@@ -10,53 +10,44 @@
    1. VARIABLES CSS (Custom Properties)
    ========================================= */
 :root {
-    /* --- Colores Base (Modo Claro) --- */
-    --color-fondo: #f4f4f5;
-    /* Gris muy claro */
-    --color-texto: #18181b;
-    /* Casi negro */
-    --color-primario: #000000;
-    /* Negro puro - Alto contraste */
-    --color-acento: #6366f1;
-    /* Índigo eléctrico - Acción */
-    --color-secundario: #a1a1aa;
-    /* Gris medio - Textos secundarios */
-    --color-tarjeta: #ffffff;
-    /* Blanco - Fondos de tarjetas */
+    /* --- Colores Base (Look "Midnight Cyber" por defecto) --- */
+    --color-fondo: #0f172a;
+    /* Azul noche muy oscuro */
+    --color-texto: #e2e8f0;
+    /* Blanco suave */
+    --color-primario: #ffffff;
+    /* Blanco puro */
+    --color-acento: #f59e0b;
+    /* Ámbar/Naranja Neón (Diferente al azul de todos) */
+    --color-secundario: #94a3b8;
+    /* Gris azulado */
+    --color-tarjeta: #1e293b;
+    /* Azul noche medio */
 
     /* --- Bordes y Sombras --- */
-    --borde: 1px solid #e4e4e7;
-    --sombra: 8px 8px 0px rgba(0, 0, 0, 0.1);
-    /* Sombra dura estilo Brutalismo */
+    --borde: 1px solid rgba(255, 255, 255, 0.1);
+    --sombra: 0 20px 50px -20px rgba(245, 158, 11, 0.3);
+    /* Sombra naranja brillante */
 
     /* --- Tipografía --- */
     --fuente-titulos: 'Space Grotesk', sans-serif;
-    /* Moderna y geométrica */
     --fuente-texto: 'Inter', sans-serif;
-    /* Legible y profesional */
 
     /* --- Espaciado --- */
     --espaciado-seccion: 8rem;
     --espaciado-elemento: 2rem;
 }
 
-/* --- Modo Oscuro (Activado mediante checkbox sin JavaScript) --- */
+/* --- Modo Claro (Opcional, si alguien da al botón) --- */
 :has(#interruptor-tema:checked) {
-    --color-fondo: #09090b;
-    /* Negro profundo */
-    --color-texto: #f4f4f5;
-    /* Blanco hueso */
-    --color-primario: #ffffff;
-    /* Blanco puro */
-    --color-acento: #22d3ee;
-    /* Cian neón - Destaca más en oscuro */
-    --color-secundario: #71717a;
-    /* Gris oscuro */
-    --color-tarjeta: #18181b;
-    /* Gris muy oscuro */
-    --borde: 1px solid #27272a;
-    --sombra: 8px 8px 0px rgba(34, 211, 238, 0.2);
-    /* Sombra con brillo neón */
+    --color-fondo: #f0f2f5;
+    --color-texto: #1a1a1a;
+    --color-primario: #000000;
+    --color-acento: #ea580c;
+    --color-secundario: #52525b;
+    --color-tarjeta: #ffffff;
+    --borde: 1px solid #e5e7eb;
+    --sombra: 8px 8px 0px rgba(0, 0, 0, 0.1);
 }
 
 /* =========================================
@@ -83,10 +74,15 @@ html {
 body {
     background-color: var(--color-fondo);
     color: var(--color-texto);
+    /* Fondo con gradiente sutil y malla cyber */
+    background-image:
+        radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.15) 0%, transparent 50%),
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 40px 40px, 40px 40px;
+    background-attachment: fixed;
     transition: background-color 0.4s ease, color 0.4s ease;
-    /* Transición suave entre temas */
     overflow-x: hidden;
-    /* Evitar scroll horizontal */
 }
 
 ul {
@@ -198,29 +194,31 @@ img {
 }
 
 /* =========================================
-   SECCIÓN HERO (INICIO)
+   SECCIÓN HERO (ESTILO PORTADA REVISTA)
    ========================================= */
 .seccion-hero {
     min-height: 100vh;
     display: flex;
-    /* Flex en lugar de Grid para control total */
-    flex-direction: row;
+    flex-direction: column;
+    /* Apilado vertical */
     align-items: center;
-    justify-content: space-between;
-    padding: 0 8%;
-    gap: 2rem;
-    overflow: hidden;
+    /* Centrado horizontal */
+    justify-content: center;
+    padding: 120px 5% 4rem;
+    /* Padding superior para el navbar */
+    gap: 3rem;
     position: relative;
+    text-align: center;
 }
 
 /* Fondo decorativo sutil detrás del hero */
 .seccion-hero::before {
-    content: 'PORTFOLIO';
+    content: 'CREATIVE';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 15vw;
+    font-size: 20vw;
     font-weight: 900;
     color: var(--color-texto);
     opacity: 0.03;
@@ -230,9 +228,13 @@ img {
 }
 
 .contenido-hero {
-    flex: 1;
-    max-width: 600px;
+    order: 2;
+    /* Texto debajo de la imagen (o encima, según gusto, probemos debajo para portada) */
+    max-width: 800px;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .etiqueta-bienvenida {
@@ -240,13 +242,14 @@ img {
     align-items: center;
     gap: 8px;
     padding: 0.5rem 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid var(--color-acento);
     border-radius: 50px;
     font-size: 0.9rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     font-weight: 600;
     backdrop-filter: blur(5px);
+    color: var(--color-acento);
 }
 
 :has(#interruptor-tema:checked) .etiqueta-bienvenida {
@@ -255,11 +258,19 @@ img {
 
 .titulo-gigante {
     font-family: var(--fuente-titulos);
-    font-size: 5.5rem;
+    font-size: 6rem;
     /* Más grande */
-    line-height: 0.9;
-    margin-bottom: 2rem;
-    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+}
+
+/* Ajuste móvil para título */
+@media (max-width: 768px) {
+    .titulo-gigante {
+        font-size: 3.5rem;
+    }
 }
 
 .texto-delineado {
@@ -288,7 +299,8 @@ img {
 
 .boton-primario {
     background: var(--color-acento);
-    color: #fff;
+    color: #000;
+    /* Texto negro sobre naranja para contraste */
     padding: 1rem 2rem;
     font-weight: 700;
     border-radius: 0;
@@ -312,16 +324,23 @@ img {
     position: relative;
     display: flex;
     justify-content: center;
+    order: 1;
+    /* Imagen PRIMERO */
+    width: 280px;
+    height: 280px;
+    margin-bottom: -2rem;
+    /* Superposición ligera */
+    z-index: 3;
 }
 
 .marco-neon {
-    width: 400px;
-    height: 500px;
-    background: linear-gradient(180deg, var(--color-tarjeta), transparent);
-    border: var(--borde);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--color-acento) 0%, transparent 70%);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 50px rgba(245, 158, 11, 0.2);
     position: relative;
-    border-radius: 200px 200px 0 0;
-    /* Forma de arco */
     overflow: hidden;
     z-index: 2;
 }
