@@ -1,10 +1,4 @@
-﻿/* =========================================
-   PORTAFOLIO ALEX MIHAI - TEMA 4 DIW
-   Archivo: style.css
-   Descripción: Estilos principales con diseño Cyber-Minimal
-   Autor: Alex Mihai
-   Fecha: Febrero 2026
-   ========================================= */
+﻿/* PORTAFOLIO ALEX MIHAI - TEMA 4 DIW | Feb 2026 | Diseño Cyber-Minimal */
 
 /* =========================================
    1. VARIABLES CSS (Custom Properties)
@@ -99,9 +93,7 @@ img {
     display: block;
 }
 
-/* =========================================
-   BARRA DE NAVEGACIÓN
-   ========================================= */
+/* --- BARRA DE NAVEGACIÓN --- */
 .barra-navegacion {
     position: fixed;
     top: 0;
@@ -193,9 +185,7 @@ img {
     color: var(--color-acento);
 }
 
-/* =========================================
-   SECCIÓN HERO (ESTILO PORTADA REVISTA)
-   ========================================= */
+/* --- SECCIÓN HERO --- */
 .seccion-hero {
     min-height: 100vh;
     display: flex;
@@ -264,13 +254,6 @@ img {
     margin-bottom: 1.5rem;
     letter-spacing: -3px;
     text-transform: uppercase;
-}
-
-/* Ajuste móvil para título */
-@media (max-width: 768px) {
-    .titulo-gigante {
-        font-size: 3.5rem;
-    }
 }
 
 .texto-delineado {
@@ -374,9 +357,7 @@ img {
     }
 }
 
-/* =========================================
-   3. SECCIÓN PROYECTOS (BENTO GRID)
-   ========================================= */
+/* --- SECCIÓN PROYECTOS (BENTO GRID) --- */
 .seccion-proyectos {
     padding: var(--espaciado-seccion) 8%;
     background-color: var(--color-fondo);
@@ -606,51 +587,8 @@ img {
     transform: scale(1.1);
 }
 
-/* RESPONSIVE BENTO GRID */
-@media (max-width: 1024px) {
-    .bento-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
-    }
 
-    .grande {
-        grid-column: span 2;
-        height: 400px;
-    }
-
-    .mediano.vertical {
-        grid-column: span 1;
-        height: 350px;
-    }
-
-    .mediano.horizontal {
-        grid-column: span 1;
-        height: 350px;
-    }
-
-    .pequeno {
-        grid-column: span 2;
-        height: 200px;
-    }
-
-    /* Expandir en tablet */
-}
-
-@media (max-width: 600px) {
-    .bento-grid {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .bento-item {
-        height: 300px !important;
-    }
-}
-
-
-/* =========================================
-   HABILIDADES
-   ========================================= */
+/* --- HABILIDADES --- */
 .seccion-habilidades {
     padding: 5rem 10%;
     background: var(--color-tarjeta);
@@ -714,9 +652,7 @@ img {
     width: 85%;
 }
 
-/* =========================================
-   CONTACTO & FOOTER
-   ========================================= */
+/* --- CONTACTO & FOOTER --- */
 .seccion-contacto {
     padding: 8rem 20%;
     text-align: center;
@@ -794,9 +730,39 @@ img {
 }
 
 /* =========================================
-   RESPONSIVE
+   RESPONSIVE (UNIFICADO)
    ========================================= */
+
+/* Tablet (Bento Grid Adaptativo) */
+@media (max-width: 1024px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+
+    .grande,
+    .pequeno {
+        grid-column: span 2;
+    }
+
+    .grande {
+        height: 400px;
+    }
+
+    .pequeno {
+        height: 200px;
+    }
+
+    .mediano.vertical,
+    .mediano.horizontal {
+        height: 350px;
+    }
+}
+
+/* Móvil (General) */
 @media (max-width: 768px) {
+
+    /* Navegación */
     .barra-navegacion {
         padding: 1rem;
     }
@@ -805,45 +771,44 @@ img {
         display: none;
     }
 
-    /* Ocultar menú en móvil x simplicidad */
-
+    /* Hero */
     .seccion-hero {
-        grid-template-columns: 1fr;
-        text-align: center;
+        padding-top: 120px;
         gap: 2rem;
-        padding-top: 100px;
     }
 
     .titulo-gigante {
-        font-size: 3rem;
-    }
-
-    .grupo-botones {
-        justify-content: center;
+        font-size: 3.5rem;
     }
 
     .marco-neon {
+        width: 250px;
+        height: 250px;
         margin: 0 auto;
-        width: 300px;
-        height: 350px;
     }
 
-    .seccion-proyectos {
-        padding: 4rem 5%;
+    .seccion-hero::before {
+        font-size: 25vw;
+        opacity: 0.05;
     }
 
-    .tarjeta-proyecto {
-        grid-template-columns: 1fr;
+    /* Fondo texto más visible */
+
+    /* Grid en Columna */
+    .bento-grid {
+        display: flex;
+        flex-direction: column;
         gap: 2rem;
     }
 
-    .tarjeta-proyecto.impar {
-        direction: ltr;
+    .bento-item {
+        height: 300px !important;
     }
 
-    /* Resetear zig-zag en móvil */
-
-    .seccion-contacto {
+    /* Secciones */
+    .seccion-proyectos,
+    .seccion-contacto,
+    .seccion-habilidades {
         padding: 4rem 5%;
     }
 }
@@ -864,9 +829,7 @@ img {
     animation: fadeIn 1s ease-out;
 }
 
-/* =========================================
-   ANIMACIONES VISIBLES (EFECTO WOW)
-   ========================================= */
+/* --- ANIMACIONES VISIBLES --- */
 
 /* 1. Aparición al hacer Scroll */
 @keyframes aparecerDesdeAbajo {
@@ -890,27 +853,6 @@ img {
 }
 
 /* 2. Efecto Hover en Tarjetas */
-.tarjeta-proyecto {
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.tarjeta-proyecto:hover .info-proyecto {
-    background: var(--color-tarjeta);
-    border-color: var(--color-acento);
-    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
-    transform: scale(1.02);
-}
-
-.tarjeta-proyecto:hover .contenedor-imagen-plana {
-    transform: scale(1.05) rotate(-2deg);
-    border-color: var(--color-acento);
-    box-shadow: 15px 15px 0 var(--color-primario);
-}
-
-.tarjeta-proyecto:hover .numero-proyecto {
-    color: var(--color-primario);
-    transform: translateX(10px);
-}
 
 /* 3. Animación Texto Hero */
 @keyframes llenarTexto {
@@ -954,9 +896,7 @@ img {
     left: 100%;
 }
 
-/* =========================================
-   ANIMACIONES DINÁMICAS PARA AVATAR
-   ========================================= */
+/* --- ANIMACIONES AVATAR --- */
 
 /* Flotación suave continua */
 @keyframes flotar-suave {
@@ -1047,9 +987,7 @@ img {
     border-color: var(--color-acento);
 }
 
-/* =========================================
-   FONDO CON PATRÓN (NO BLANCO PLANO)
-   ========================================= */
+/* --- FONDO CON PATRÓN --- */
 
 body {
     background-color: var(--color-fondo);
@@ -1060,9 +998,7 @@ body {
     background-attachment: fixed;
 }
 
-/* =========================================
-   MEJORAS STACK TECNOLÓGICO
-   ========================================= */
+/* --- MEJORAS STACK --- */
 
 .seccion-habilidades {
     padding: 8rem 10%;
@@ -1219,24 +1155,46 @@ body {
 .barra-progreso {
     animation: cargar-barra 2s ease-out forwards;
 }
+
 /* Estilo Tarjeta UI Kit */
 .ui-kit-card {
     position: relative;
     /* Eliminar estilos anteriores de .pequeno que chocan */
-    display: block; 
+    display: block;
 }
+
 .img-fit-dark {
-    width: 100%; height: 100%; object-fit: cover;
-    opacity: 0.6; transition: 0.4s;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    transition: 0.4s;
 }
-.bento-item:hover .img-fit-dark { opacity: 0.3; transform: scale(1.1); }
+
+.bento-item:hover .img-fit-dark {
+    opacity: 0.3;
+    transform: scale(1.1);
+}
 
 .overlay-ui {
-    position: absolute; bottom: 0; left: 0; 
-    width: 100%; padding: 1.5rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-    z-index: 2; pointer-events: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    z-index: 2;
+    pointer-events: none;
 }
-.overlay-ui h3 { font-size: 1.8rem; margin-bottom: 0px; color: white; }
-.overlay-ui p { font-size: 0.9rem; color: #ccc; margin-top: 5px; }
 
+.overlay-ui h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0px;
+    color: white;
+}
+
+.overlay-ui p {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-top: 5px;
+}
