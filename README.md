@@ -7,9 +7,6 @@
 ## 🎯 Finalidad del Trabajo
 Este proyecto consiste en la creación de un portafolio personal web responsive utilizando **exclusivamente HTML5 y CSS3**, sin el uso de JavaScript. El objetivo es demostrar el dominio de maquetación web, uso de variables CSS (Custom Properties) para temas claro/oscuro, animaciones, transiciones avanzadas y diseño adaptativo.
 
-## 🔗 Despliegue
-Puedes ver el proyecto desplegado en el siguiente enlace:
-- **[AQUÍ IRÁ TU ENLACE DE VERCEL/NETLIFY]** *(Debes editar esto una vez despliegues)*
 
 ---
 
