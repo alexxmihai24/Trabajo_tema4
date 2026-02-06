@@ -32,13 +32,6 @@ Un formulario estilizado con **Glassmorphism** (efecto cristal), campos validado
 
 ---
 
-## 📸 Capturas de Pantalla
-
-### Escritorio (Desktop)
-> *Añade aquí tu captura de pantalla de escritorio*
-
-### Móvil (Mobile)
-> *Añade aquí tu captura de pantalla de móvil*
 
 ---
 
